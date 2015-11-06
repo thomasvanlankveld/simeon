@@ -1,6 +1,6 @@
 {
   "name": "simeon",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Access control for isomorphic javascript applications",
   "main": "simeon.js",
   "scripts": {
