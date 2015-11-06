@@ -7,7 +7,7 @@
  *
  * @returns {simeon} The evaluation builder factory
  */
-var simeon = (function(_){
+simeon = (function(_){
 
   /**
    * Simeon's default options
@@ -18,12 +18,12 @@ var simeon = (function(_){
     user: undefined,
     roles: {},
     granted() {
-    return true;
-  },
-  denied(reason) {
-    throw new Error(`Not authorized`);
-  }
-};
+      return true;
+    },
+    denied(reason) {
+      throw new Error(`Not authorized`);
+    }
+  };
 
   /**
    * Configure a set of simeon options
@@ -53,20 +53,20 @@ var simeon = (function(_){
      * @param test
      */
     addRole(name, test) {
-    config.roles[name] = test;
-  },
+      config.roles[name] = test;
+    },
 
-  /**
-   * Configure simeon
-   *
-   * @param user
-   * @param granted
-   * @param denied
-   */
-  configure({user, granted, denied}) {
-    configure(config, {user, granted, denied});
-  }
-};
+    /**
+     * Configure simeon
+     *
+     * @param user
+     * @param granted
+     * @param denied
+     */
+    configure({user, granted, denied}) {
+      configure(config, {user, granted, denied});
+    }
+  };
 
   /**
    * Examination builder factory
@@ -93,27 +93,27 @@ var simeon = (function(_){
        * @returns {examinationBuilder}
        */
       only(name) {
-      roles[name] = config.roles[name];
-      return this;
-    },
+        roles[name] = config.roles[name];
+        return this;
+      },
 
-    /**
-     * Run the examination
-     *
-     * @param granted
-     * @param denied
-     * @returns {*}
-     */
-    allowed({granted, denied}={}) {
-      configure(options, {granted, denied});
-      _.each(roles, (test, name) => {
-        if (!test(options.user)) {
-        return options.denied(`User is not ${name}`);
+      /**
+       * Run the examination
+       *
+       * @param granted
+       * @param denied
+       * @returns {*}
+       */
+      allowed({granted, denied}={}) {
+        configure(options, {granted, denied});
+        _.each(roles, (test, name) => {
+          if (!test(options.user)) {
+            return options.denied(`User is not ${name}`);
+          }
+        });
+        return options.granted();
       }
-    });
-      return options.granted();
     }
-  }
   };
 
   return _.extend(examinationBuilder, simeonInterface);
