@@ -1,7 +1,7 @@
 {
   "name": "simeon",
-  "version": "0.0.2",
-  "description": "Access control for javascript applications",
+  "version": "0.1.0",
+  "description": "Access control for isomorphic javascript applications",
   "main": "simeon.js",
   "scripts": {
     "test": "jasmine"
