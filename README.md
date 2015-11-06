@@ -8,4 +8,4 @@ Access control for isomorphic javascript applications
 Status
 ------
 
-This package doesn't do anything yet
+This package is in an experimental stage. It has not tested been tested in any context except Meteor.
