@@ -1,6 +1,6 @@
 Package.describe({
   name: 'thomasvanlankveld:simeon',
-  version: '0.0.2',
+  version: '0.1.0',
   summary: 'Access control for isomorphic javascript applications',
   git: 'https://github.com/thomasvanlankveld/simeon',
   documentation: 'README.md'
