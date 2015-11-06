@@ -81,7 +81,7 @@ simeon = (function(_){
     var roles = {};
     var options = _.extend({}, config);
 
-    if (typeof options.user === "undefined") { options.user = user; }
+    if (typeof user !== "undefined") { options.user = user; }
     if (typeof options.user === "function") { options.user = options.user(); }
 
     return {
