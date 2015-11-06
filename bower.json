@@ -6,7 +6,7 @@
   "authors": [
     "Thomas van Lankveld <thomas@cell-0.com>"
   ],
-  "description": "Access control for javascript applications",
+  "description": "Access control for isomorphic javascript applications",
   "keywords": [
     "access",
     "control",
