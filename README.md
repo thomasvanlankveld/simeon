@@ -185,6 +185,8 @@ Query builder stuff
 To do
 -----
 
+**Gates**
+
 Disallow using 'simeon' directly?
 
 ```javascript
@@ -192,12 +194,47 @@ const gate = simeon.guard();
 const otherGate = gate.clone();
 ```
 
+**Data**
+
 Data chaining?
 
 ```javascript
 simeon({user, comment}).only().admin().or().authorOfComment().allowed();
 ```
 
-Steams?
+Configure data functions?
+
+```javascript
+simeon.data({comment: comments.findOne});
+
+simeon.rule({authorOfComment: (user, {comment}) => comment.authorId === user._id})
+
+simeon({comment: commentId}).only().authorOfComment().allowed();
+```
+
+Maybe data fetching is a bit much, better left outside of simeon...
+
+**Async**
 
 Return a promise rather than a boolean? (also allowing async / await?)
+
+Steams?
+
+**Docs**
+
+Examples:
+
+- [Backbone.js](http://backbonejs.org/) / [Underscore.js](http://underscorejs.org/)
+- [D3](https://github.com/mbostock/d3/wiki/API-Reference)
+- [Moment.js](http://momentjs.com/docs/)
+- [Promise](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Promise)
+- [Google Maps API](https://developers.google.com/maps/documentation/javascript/3.exp/reference)
+- [mongodb](https://www.npmjs.com/package/mongodb)
+
+**Names**
+
+- [peter](https://www.npmjs.com/package/peter)
+- [saint-peter](https://www.npmjs.com/search?q=saint+peter)
+- ~~[gate](https://www.npmjs.com/package/gate)~~
+- ~~[gates](https://www.npmjs.com/package/gates)~~
+- [pearly-gates](https://www.npmjs.com/search?q=pearly+gates)
