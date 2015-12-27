@@ -239,6 +239,19 @@ Examples:
 - ~~[gates](https://www.npmjs.com/package/gates)~~
 - [pearly-gates](https://www.npmjs.com/search?q=pearly+gates)
 
+**Metaphor**
+
+```javascript
+const scan = customs.scan();
+scan(user).only().admin().allowed();
+
+const checkpoint = customs.checkpoint();
+checkpoint(user).only().admin().allowed();
+
+const scan = customs.machine();
+scan(user).only().admin().allowed();
+```
+
 **Errors**
 
 - Verbose error if argument is not found; eg. `only("amdin")` should throw `"no role called amdin found"`
