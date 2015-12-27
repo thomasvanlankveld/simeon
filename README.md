@@ -238,3 +238,8 @@ Examples:
 - ~~[gate](https://www.npmjs.com/package/gate)~~
 - ~~[gates](https://www.npmjs.com/package/gates)~~
 - [pearly-gates](https://www.npmjs.com/search?q=pearly+gates)
+
+**Errors**
+
+- Verbose error if argument is not found; eg. `only("amdin")` should throw `"no role called amdin found"`
+- Throw error when trying to `holdup().only().only()` or some other combination that isn't a sentence
