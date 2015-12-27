@@ -92,6 +92,8 @@ const getCurrentUser = ({session}, users) => {
   return users.findOne(session.userId);
 };
 
+simeon.user(getCurrentUser);
+
 simeon(req, users).only(admin).allowed();
 ```
 
@@ -125,12 +127,6 @@ simeon.addRule('admin', user => user.admin === true);
 simeon().only().admin().allowed();
 ```
 
-**Multiple instances**
-
-```javascript
-const guard = simeon.instance();
-```
-
 
 Granted and denied
 ------------------
@@ -143,6 +139,8 @@ simeon.denied(() => throw new Error('Boo!'));
 ```
 
 *What does it get as arguments? (like in 'As middleware?')*
+
+Aliases: then, catch
 
 
 As middleware
@@ -169,7 +167,7 @@ Multiple instances
 If you expect to 
 
 ```javascript
-postGuard = simeon.clone();
+const gate = simeon.guard();
 ```
 
 
@@ -181,6 +179,7 @@ Asynchronous rules
 Subsetting data
 ---------------
 
+Query builder stuff
 
 
 To do
@@ -189,8 +188,8 @@ To do
 Disallow using 'simeon' directly?
 
 ```javascript
-const guard = simeon.instance();
-const otherGuard = guard.clone();
+const gate = simeon.guard();
+const otherGate = gate.clone();
 ```
 
 Data chaining?
@@ -200,3 +199,5 @@ simeon({user, comment}).only().admin().or().authorOfComment().allowed();
 ```
 
 Steams?
+
+Return a promise rather than a boolean? (also allowing async / await?)
