@@ -14,7 +14,7 @@ simeon = (function(_){
    *
    * @type {{user: undefined, roles: {}, granted: (function()), denied: (function(*))}}
    */
-  var config = {
+  const config = {
     user: undefined,
     roles: {},
     granted() {
